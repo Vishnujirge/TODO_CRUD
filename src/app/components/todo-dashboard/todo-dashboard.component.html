@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <label for="todo">Add todo</label>
+          <input type="text" #todoItem class="form-control" />
+
+          <button
+            class="btn btn-sm btn-block mt-3 btn-info"
+            *ngIf="!isInEditMode"
+            (click)="OnAdd()"
+          >
+            Add TODO
+          </button>
+          <button
+            class="btn btn-sm btn-block mt-3 btn-success"
+            *ngIf="isInEditMode"
+            (click)="update()"
+          >
+            Update TODO
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-body">
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+              *ngFor="let todo of todoArr"
+            >
+              <strong>{{ todo.todoItem }}</strong>
+              <div>
+                <button
+                  class="btn btn-sm btn-outline-info mr-2"
+                  (click)="onEdit(todo)"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-sm btn-outline-danger"
+                  (click)="onRemove(todo.todoId)"
+                >
+                  Remove
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
