@@ -1,0 +1,50 @@
+<div class="row mt-3">
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-body">
+        <label for="todo">Todo</label>
+        <input type="text" id="todo" #todoItem class="form-control" />
+
+        <button
+          class="btn btn-block mt-3 btn-primary"
+          (click)="send()"
+          *ngIf="!isInEditMode"
+        >
+          Add Todo
+        </button>
+        <button class="btn btn-block mt-3 btn-success"
+        (click)="onUpdate()"
+        *ngIf="isInEditMode">
+          Update Todo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            *ngFor="let todo of todoArr"
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <strong>{{ todo.todoItem }}</strong>
+
+            <div>
+              <button class="btn btn-sm btn-info mr-2" (click)="onEdit(todo)">
+                Edit
+              </button>
+              <button
+                class="btn btn-sm btn-danger"
+                (click)="onRemove(todo.todoId)"
+              >
+                Remove
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
