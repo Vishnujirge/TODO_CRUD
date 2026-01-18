@@ -1,4 +1,7 @@
 <!-- <div class="container"> -->
+<h1 class="text-center text-white">
+  {{ isInEditMode ? "Update Todo" : "Add Todo" }}
+</h1>
 <div class="row mt-5">
   <div class="col-md-5">
     <div class="card">
@@ -52,7 +55,7 @@
         <ng-template #noTodo>
           <p class="alert alert-warning">
             No Todo !!!
-            <!-- fallback_mesg -->  
+            <!-- fallback_mesg -->
           </p>
         </ng-template>
       </div>
