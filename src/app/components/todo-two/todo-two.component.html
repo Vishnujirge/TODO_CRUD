@@ -14,10 +14,10 @@
           Add
         </button>
         <button
-         (click)="onUpdate()"
-         class="btn btn-block mt-3 btn-success"
-        
-        *ngIf="isInEditMode">
+          (click)="onUpdate()"
+          class="btn btn-block mt-3 btn-success"
+          *ngIf="isInEditMode"
+        >
           Update
         </button>
       </div>
@@ -27,7 +27,7 @@
   <div class="col-md-7">
     <div class="card bg-dark">
       <div class="card-body">
-        <ul class="list-group bg-dark">
+        <ul class="list-group bg-dark" *ngIf="todoArr.length > 0; else noTodo">
           <li
             class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center"
             *ngFor="let todo of todoArr"
@@ -46,6 +46,9 @@
             </div>
           </li>
         </ul>
+        <ng-template #noTodo>
+          <p class="alert alert-warning">NO TODO !!!</p>
+        </ng-template>
       </div>
     </div>
   </div>
